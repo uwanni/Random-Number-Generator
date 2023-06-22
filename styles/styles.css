@@ -1,0 +1,93 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow:hidden ;
+}
+.titleArea{
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    background-color: brown;
+    height: 80px;
+    width: 100%;
+    margin-top: 0px;
+}
+.titleArea h1{
+    font-family: fantasy;
+    color: beige;    
+}
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.form form p{
+    color: rgb(190, 73, 52);
+    font-size: 18px;
+}
+.range{
+    display: flex;
+}
+
+
+/*from labels and boxes */
+.range .from{
+    display: flex;
+    padding: 30px;
+}
+.range .from .fromLabel {
+    margin-right: 20px;
+}
+.range .from .fromReq{
+    color: #59675F;
+}
+.range input{
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(199, 132, 123);
+    border-radius: 4px;    
+}
+
+/*to labels and boxes */
+.range .to{
+    display: flex;
+    padding: 30px;
+}
+.range .to .toLabel {
+    margin-right: 20px;
+}
+.range .to .toReq{
+    color: #59675F;
+}
+
+/*button Do It */
+.doItButton{
+    text-align: center;
+    padding: 15px;
+}
+.doItButton button {
+    background-color: rgb(190, 73, 52);
+    color: aliceblue;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+    height: 35px;
+    font-family: fantasy;
+    font-size: 18px;
+}
+.doItButton button:hover {
+    background-color: rgb(175, 40, 17);
+}
+
+/*results section starts here*/
+/* divider */
+hr.rounded{
+    border: 2px solid rgb(190, 73, 52);
+}
+
+.results p{
+    text-align: center;
+}
