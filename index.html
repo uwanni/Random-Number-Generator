@@ -22,22 +22,22 @@
                             <div class="from">
                                 <label class="fromLabel">From</label>
                                 <div class="fromText">
-                                    <input type="text"> <br>
-                                    <label class="fromReq">This field is required.</label>    
+                                    <input id="numberFrom" type="text"> <br>
+                                    <label id="instructionTextFrom" class="fromReq">This field is required.</label>    
                                 </div>
                             </div>
                             
                             <div class="to">
                                 <label class="toLabel">To</label>
                                 <div class="toText">
-                                    <input type="text"> <br>
-                                    <label class="toReq">This field is required.</label>    
+                                    <input id="numberTo" type="text"> <br>
+                                    <label id="instructionTextTo" class="toReq">This field is required.</label>    
                                 </div>
                             </div>
                         </div>
                         <div class="doItButton">
-                            <button type="button">Do It!</button>
-                        </div>
+                            <button id="buttonID" type="button" onclick="generateNumbers()">Do It!</button>
+                        </div>  
 
                     </form>
 
@@ -47,7 +47,7 @@
             <hr class="rounded">
 
             <div class="results">
-                <p>Here are 50 randomly generated numbers within and  : </p>
+                <p id="showResults"> Results will be shown here : </p>
             </div>
 
         </div>
