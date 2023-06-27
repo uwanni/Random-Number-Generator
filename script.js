@@ -66,18 +66,68 @@ function generateNumbers(){
     }
 
 
-    if (gapBetween>50){
+    // generate 50 random numbers
+    if (gapBetween >= 49){
         document.getElementById("showResults").innerHTML ="Here are 50 random numbers within the range of " + validatedFrom + " and " + validatedTo + ".";
-        document.getElementById("showResults").style.color = "black";       
+        document.getElementById("showResults").style.color = "black";  
+
+        var largerNumber;
+        var smallerNumber;
+
+        if(validatedFrom>validatedTo){
+            largerNumber = validatedFrom;
+            smallerNumber = validatedTo;
+        }
+        else{
+            largerNumber = validatedTo;
+            smallerNumber = validatedFrom;
+        }            
+
+    // Generate 50 random numbers and display them in the table 
+    function numbersTable() {
+        var tableBody = document.querySelector("#resultsTableID tbody");
+        tableBody.innerHTML = "";
+
+        var numberOfRows = 5;
+        var numberOfColumns = 10;
+        var numberOfGeneratedNumbers = 0;
+        numberArray = [];
+
+        while(numberOfGeneratedNumbers<50){
+            var randomNum = Math.floor(Math.random() * (largerNumber - smallerNumber + 1) + smallerNumber);
+
+            if(!numberArray.includes(randomNum)){
+                numberArray.push(randomNum);
+                numberOfGeneratedNumbers++;
+            }
+        } 
+
+        for(var row=0; row<numberOfRows; row++){
+            var newRow = document.createElement("tr");
+
+            for(var col=0; col<numberOfColumns; col++){
+
+                var cell = document.createElement("td");
+                cell.textContent = numberArray[row*numberOfColumns+col];   
+                newRow.appendChild(cell);  
+            }
+        tableBody.appendChild(newRow);   
+        }
     }
-    else if(gapBetween<50){
-        document.getElementById("showResults").innerHTML ="Oops, can not process. Please be sure that there is a gap of at least 50 between the given numbers.";
+    numbersTable();    
+    }
+
+    else if(gapBetween < 50){
+        document.getElementById("showResults").innerHTML ="Oops, can not process. Please be sure that there is a gap of at least 50 between the given numbers(inclusive).";
+        document.getElementById("tem").innerHTML= "";       
         document.getElementById("showResults").style.color = "rgb(190, 73, 52)";
     }
     else{
         document.getElementById("showResults").innerHTML ="Looks like you have entired an invalid input. Please chack again.";   
+        document.getElementById("tem").innerHTML= "";       
         document.getElementById("showResults").style.color = "rgb(190, 73, 52)";
     }
 
 
 }
+

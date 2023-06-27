@@ -2,7 +2,9 @@
 body{
     margin: 0;
     padding: 0;
-    overflow:hidden ;
+}
+.container{
+    height: 100vh;
 }
 .titleArea{
     display: flex;
@@ -91,4 +93,17 @@ hr.rounded{
 .results p{
     text-align: center;
     margin-top: 40px;
+}
+.resultsTable {
+    display: flex;
+    justify-content: center;
+}  
+#resultsTableID {
+    margin: 50px auto;
+}    
+.resultsTable td {
+    width: 10%;
+    border: 0.5px solid rgb(190, 73, 52);
+    text-align: center;
+    padding: 15px;
 }
