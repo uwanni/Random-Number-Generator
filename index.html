@@ -54,9 +54,30 @@
             <div class="resultsTable">
                 <table id="resultsTableID">
                     <tbody>
-
                     </tbody>
                 </table>
+            </div>
+
+            <div class="calculations" id="calculationSection">
+                <p>Play with the numbers! <br>
+                    Select 10 numbers from the number box. <br>
+                    Try <strong>Adding</strong> or <strong>Multiplying</strong> them. </p>
+
+                <form class="calculationForm">
+                    <div class="addition">
+                        <button id="Add" type="button">Add the numbers</button>
+                        <input class="addOutput" readonly>
+                    </div>
+                    <div class="multiplication">
+                        <button id="Mul" type="button">Multiply the numbers</button>
+                        <input class="mulOutput" readonly>
+                    </div>
+
+                    <div class="buttons">
+                        <button class="clear" type="reset">CLEAR</button>
+                        <button class="save" type="submit">SAVE</button>
+                    </div>
+                </form>
             </div>
 
         </div>

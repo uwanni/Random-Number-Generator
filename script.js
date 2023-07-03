@@ -84,7 +84,6 @@ function generateNumbers(){
         }            
 
     // Generate 50 random numbers and display them in the table 
-    function numbersTable() {
         var tableBody = document.querySelector("#resultsTableID tbody");
         tableBody.innerHTML = "";
 
@@ -96,6 +95,7 @@ function generateNumbers(){
         while(numberOfGeneratedNumbers<50){
             var randomNum = Math.floor(Math.random() * (largerNumber - smallerNumber + 1) + smallerNumber);
 
+            //check if the generated number is already available
             if(!numberArray.includes(randomNum)){
                 numberArray.push(randomNum);
                 numberOfGeneratedNumbers++;
@@ -112,9 +112,9 @@ function generateNumbers(){
                 newRow.appendChild(cell);  
             }
         tableBody.appendChild(newRow);   
-        }
-    }
-    numbersTable();    
+        }   
+
+        document.getElementById("calculationSection").style.visibility = "visible" ;
     }
 
     else if(gapBetween < 50){

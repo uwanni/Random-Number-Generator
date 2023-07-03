@@ -94,6 +94,8 @@ hr.rounded{
     text-align: center;
     margin-top: 40px;
 }
+
+/* table */
 .resultsTable {
     display: flex;
     justify-content: center;
@@ -106,4 +108,71 @@ hr.rounded{
     border: 0.5px solid rgb(190, 73, 52);
     text-align: center;
     padding: 15px;
+}
+
+/* Calculation */
+.calculations{
+    visibility: hidden;
+}
+
+.calculations p{
+    color: rgb(66, 53, 51);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    text-align: center;
+    line-height: 30px;
+}
+.calculations .calculationForm{
+    text-align: center;
+    padding: 35px;
+}
+
+.addOutput,
+.mulOutput{
+    width: 10pc;
+    height: 30px;
+    border-bottom: solid rgb(0, 0, 0) ;
+    border-width:0px 0px 0.5px 0px;
+    margin-left: 25px;
+}
+.addOutput:focus,
+.mulOutput:focus{
+    outline: none;
+}
+
+.addition,
+.multiplication{
+    margin: 20px;
+}
+
+.addition #Add,
+.multiplication #Mul{
+    width: 20pc;
+    height: 30px;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(190, 73, 52);
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.addition #Add:hover,
+.multiplication #Mul:hover{
+    background-color: rgb(175, 40, 17);
+}
+
+.calculationForm .buttons button{
+    width: 10pc;
+    height: 30px;
+    cursor: pointer;
+    border: 0.5px solid rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);    
+    margin: 40px;
+    font-weight: bold;
+    transition: transform .2s ease-in-out;
+}
+.calculationForm .buttons button:hover{
+    transform: scale(1.05);
 }
