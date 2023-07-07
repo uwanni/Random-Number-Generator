@@ -134,7 +134,7 @@ function generateNumbers(){
                 function selectNumbers(cellID) {
                     var selectedCell = document.getElementById(cellID);
 
-                    if(selectedNumberCount < 3){
+                    if(selectedNumberCount < 10){
 
                         if(!selectedCellsArray.includes(selectedCell.textContent)){
                             selectedCell.classList.toggle('selected');                                                 
