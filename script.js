@@ -2,8 +2,18 @@
 document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("buttonID").addEventListener("click", function(){
         generateNumbers();    
+    });
+
+    //close the alert - max 10 number selecting 
+    var closeBtn = document.getElementById('closeButtonID');    
+    closeBtn.addEventListener('click', function() {
+        var alertWindow = document.getElementById("alertBoxID");
+        alertWindow.style.visibility = "hidden";    
+        document.getElementById("containerID").classList.toggle("blurry");
+
+    });
 });
-});
+
 
 function generateNumbers(){
 
@@ -68,13 +78,14 @@ function generateNumbers(){
 
     // generate 50 random numbers
     if (gapBetween >= 49){
-        document.getElementById("showResults").innerHTML ="Here are 50 random numbers within the range of " + validatedFrom + " and " + validatedTo + ".";
-        document.getElementById("showResults").style.color = "black";  
+        document.getElementById("showResults").innerHTML ="";
+        document.getElementById("showResultsInstructionsID").style.visibility="visible";
+        document.getElementById("containerID").style.overflow="visible";
 
         var largerNumber;
         var smallerNumber;
 
-        if(validatedFrom>validatedTo){
+        if(validatedFrom>validatedTo){  
             largerNumber = validatedFrom;
             smallerNumber = validatedTo;
         }
@@ -109,25 +120,87 @@ function generateNumbers(){
 
                 var cell = document.createElement("td");
                 cell.textContent = numberArray[row*numberOfColumns+col];   
-                newRow.appendChild(cell);  
+                newRow.appendChild(cell);
+                
+                //assigning cell IDs and put selected 10 numbers to an array
+                const cellID = row.toString() + col.toString();
+                cell.setAttribute('id', cellID);
+
+                var selectedCellsArray = [];
+                var selectedNumberCount = 0;
+
+                cell.addEventListener('click', selectNumbers.bind(null, cellID));
+
+                function selectNumbers(cellID) {
+                    var selectedCell = document.getElementById(cellID);
+
+                    if(selectedNumberCount < 3){
+
+                        if(!selectedCellsArray.includes(selectedCell.textContent)){
+                            selectedCell.classList.toggle('selected');                                                 
+                            selectedCellsArray.push(selectedCell.textContent);
+                            selectedNumberCount++ ;
+                        }else{
+                            selectedCell.classList.toggle('selected'); 
+                            selectedCellsArray.splice(
+                                selectedCellsArray.indexOf(selectedCell.textContent), 1
+                              );
+                            selectedNumberCount -- ;                            
+                        }
+                    }
+                    else{  
+                        if(selectedCellsArray.includes(selectedCell.textContent)){
+                            selectedCell.classList.toggle('selected'); 
+                            selectedCellsArray.splice(
+                                selectedCellsArray.indexOf(selectedCell.textContent), 1
+                              );
+                            selectedNumberCount -- ;
+                        }
+                        else{
+                            function showAlert(message){
+                                var alertWindow = document.getElementById("alertBoxID");
+                                alertWindow.style.visibility = "visible";
+                                var alertMessage = document.getElementById("alertMessageID");
+                                alertMessage.textContent = message;
+    
+                                document.getElementById("containerID").classList.toggle("blurry");
+    
+                            }        
+                            showAlert("You have already selected 10 numbers.");          
+                        }                       
+                    }
+                }                               
             }
         tableBody.appendChild(newRow);   
-        }   
-
+        }      
         document.getElementById("calculationSection").style.visibility = "visible" ;
-    }
+    } 
 
+    //if the user input values are invalid
     else if(gapBetween < 50){
+        resetResults();
         document.getElementById("showResults").innerHTML ="Oops, can not process. Please be sure that there is a gap of at least 50 between the given numbers(inclusive).";
-        document.getElementById("tem").innerHTML= "";       
-        document.getElementById("showResults").style.color = "rgb(190, 73, 52)";
     }
     else{
+        resetResults();
         document.getElementById("showResults").innerHTML ="Looks like you have entired an invalid input. Please chack again.";   
-        document.getElementById("tem").innerHTML= "";       
-        document.getElementById("showResults").style.color = "rgb(190, 73, 52)";
     }
 
+    //reseting the unsaved results when the user input invalid values
+    function resetResults(){
+        var tableBody = document.querySelector("#resultsTableID tbody");
+        tableBody.innerHTML = "";
+
+        document.getElementById("addOutputID").value="";
+        document.getElementById("mulOutputID").value="";
+        document.getElementById("calculationSection").style.visibility = "hidden" ;
+
+        document.getElementById("showResults").style.color = "rgb(190, 73, 52)";
+        document.getElementById("showResultsInstructionsID").style.visibility="hidden";
+
+        document.getElementById("containerID").style.overflow="hidden";
+
+    };
 
 }
 

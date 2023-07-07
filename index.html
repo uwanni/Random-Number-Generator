@@ -10,7 +10,9 @@
 
     <body>
 
-        <div class="container">
+        <div class="container" id="containerID">
+
+            <!-- Input form -->
             <div class="numberGenerator">
                 <div class="titleArea">
                     <h1>Random Number Generator</h1>  
@@ -23,7 +25,7 @@
                             <div class="from">
                                 <label class="fromLabel">From</label>
                                 <div class="fromText">
-                                    <input id="numberFrom" type="text"> <br>
+                                    <input id="numberFrom" type="text" autocomplete="off"> <br>
                                     <label id="instructionTextFrom" class="fromReq">This field is required.</label>    
                                 </div>
                             </div>
@@ -31,7 +33,7 @@
                             <div class="to">
                                 <label class="toLabel">To</label>
                                 <div class="toText">
-                                    <input id="numberTo" type="text"> <br>
+                                    <input id="numberTo" type="text" autocomplete="off"> <br>
                                     <label id="instructionTextTo" class="toReq">This field is required.</label>    
                                 </div>
                             </div>
@@ -47,40 +49,60 @@
 
             <hr class="rounded">
 
-            <div class="results">
-                <p id="showResults"> Results will be shown here : </p>
-            </div>
+            <p id="showResults"> Results will be shown here : </p>
+           
+            <div class="doItResults" id="doItResultsID">
 
-            <div class="resultsTable">
-                <table id="resultsTableID">
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
+                <!-- results table -->
+                <div class="results">
 
-            <div class="calculations" id="calculationSection">
-                <p>Play with the numbers! <br>
-                    Select 10 numbers from the number box. <br>
-                    Try <strong>Adding</strong> or <strong>Multiplying</strong> them. </p>
-
-                <form class="calculationForm">
-                    <div class="addition">
-                        <button id="Add" type="button">Add the numbers</button>
-                        <input class="addOutput" readonly>
+                    <div class="showResultsInstructions" id="showResultsInstructionsID">
+                        <p id="showResults2">
+                            * If you want to check these results later, please make sure to save the results before you leaving. </p>
+                            
+                        <p id="showResults3">Play with the numbers! <br>
+                            Select 10 numbers from the number box. <br>
+                            Try <strong>Adding</strong> or <strong>Multiplying</strong> them. </p>    
                     </div>
-                    <div class="multiplication">
-                        <button id="Mul" type="button">Multiply the numbers</button>
-                        <input class="mulOutput" readonly>
-                    </div>
+        
+                </div>
+    
+                <div class="resultsTable">
+                    <table id="resultsTableID">
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <br><p id="a"></p>
+                </div>
+                    
+                <!-- calculation form -->
+                <div class="calculations" id="calculationSection">
+                    <form class="calculationForm">
+                        <div class="addition">
+                            <button id="Add" type="button">Add the numbers</button>
+                            <input class="addOutput" id="addOutputID" readonly>
+                        </div>
+                        <div class="multiplication">
+                            <button id="Mul" type="button">Multiply the numbers</button>
+                            <input class="mulOutput" id="mulOutputID" readonly>
+                        </div>
+    
+                        <div class="buttons">
+                            <button class="clear" type="reset">Clear the results</button> <br>
+                            <button class="save" type="submit">Save the results</button>
+                        </div>
+                    </form>
+                </div>
 
-                    <div class="buttons">
-                        <button class="clear" type="reset">CLEAR</button>
-                        <button class="save" type="submit">SAVE</button>
-                    </div>
-                </form>
             </div>
 
         </div>
+        <!-- alert box -->
+        <div class="alertBox" id="alertBoxID">
+            <span class="alertMessage" ID="alertMessageID"></span> <br>
+                <button class="close" id="closeButtonID">OK</button>            
+        </div>
+        
 
     </body>
 
