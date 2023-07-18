@@ -154,11 +154,13 @@ hr.rounded{
 }
 .addOutput,
 .mulOutput{
-    width: 10pc;
+    min-width: 10pc;
     height: 30px;
     border-bottom: solid rgb(0, 0, 0) ;
     border-width:0px 0px 0.5px 0px;
     margin-left: 25px;
+    font-size: 20px;
+    text-align: center;
 }
 .addOutput:focus,
 .mulOutput:focus{

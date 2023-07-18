@@ -4,6 +4,13 @@ document.addEventListener("DOMContentLoaded", function(){
         generateNumbers();    
     });
 
+    document.getElementById("Add").addEventListener("click", function(){
+        addTheSelectedNumbers();
+    });
+    document.getElementById("Mul").addEventListener("click", function(){
+        multiplyTheSelectedNumbers();
+    });
+
     //close the alert - max 10 number selecting 
     var closeBtn = document.getElementById('closeButtonID');    
     closeBtn.addEventListener('click', function() {
@@ -14,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 });
 
+var selectedCellsArray = [];
 
 function generateNumbers(){
 
@@ -96,6 +104,9 @@ function generateNumbers(){
 
     // Generate 50 random numbers and display them in the table 
         var tableBody = document.querySelector("#resultsTableID tbody");
+        selectedCellsArray = [];
+        document.getElementById("addOutputID").style.color = "transparent";
+        document.getElementById("mulOutputID").style.color = "transparent";
         tableBody.innerHTML = "";
 
         var numberOfRows = 5;
@@ -126,7 +137,6 @@ function generateNumbers(){
                 const cellID = row.toString() + col.toString();
                 cell.setAttribute('id', cellID);
 
-                var selectedCellsArray = [];
                 var selectedNumberCount = 0;
 
                 cell.addEventListener('click', selectNumbers.bind(null, cellID));
@@ -173,7 +183,7 @@ function generateNumbers(){
             }
         tableBody.appendChild(newRow);   
         }      
-        document.getElementById("calculationSection").style.visibility = "visible" ;
+        document.getElementById("calculationSection").style.visibility = "visible" ;        
     } 
 
     //if the user input values are invalid
@@ -188,7 +198,7 @@ function generateNumbers(){
 
     //reseting the unsaved results when the user input invalid values
     function resetResults(){
-        var tableBody = document.querySelector("#resultsTableID tbody");
+        var tableBody = document.querySelector("#resultsTableID tbody");       
         tableBody.innerHTML = "";
 
         document.getElementById("addOutputID").value="";
@@ -204,3 +214,23 @@ function generateNumbers(){
 
 }
 
+//calculations - Add the Selected Numbers
+function addTheSelectedNumbers(){
+    var addValue = 0;
+    document.getElementById("addOutputID").style.color = "black";
+
+    for(var arrayindex=0; arrayindex<selectedCellsArray.length; arrayindex++){
+        addValue += parseInt(selectedCellsArray[arrayindex]);
+        document.getElementById("addOutputID").value = addValue;
+    }
+}
+//calculations - Multiply the Selected Numbers
+function multiplyTheSelectedNumbers(){
+    var mulValue = 1;
+    document.getElementById("mulOutputID").style.color = "black";
+
+    for(var arrayindex=0; arrayindex<selectedCellsArray.length; arrayindex++){
+        mulValue *= parseInt(selectedCellsArray[arrayindex]);
+        document.getElementById("mulOutputID").value = mulValue;
+    }
+}
