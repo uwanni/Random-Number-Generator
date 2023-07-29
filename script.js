@@ -183,7 +183,8 @@ function generateNumbers(){
             }
         tableBody.appendChild(newRow);   
         }      
-        document.getElementById("calculationSection").style.visibility = "visible" ;        
+        document.getElementById("calculationSection").style.visibility = "visible" ; 
+
     } 
 
     //if the user input values are invalid
@@ -233,4 +234,9 @@ function multiplyTheSelectedNumbers(){
         mulValue *= parseInt(selectedCellsArray[arrayindex]);
         document.getElementById("mulOutputID").value = mulValue;
     }
+}
+
+//send the results to the database
+function saveTheResults(){
+
 }
