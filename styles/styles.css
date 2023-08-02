@@ -7,17 +7,27 @@ body{
     overflow: hidden;
 }
 .titleArea{
-    display: flex;
-    justify-content: center;
-    margin-top: 0;
     background-color: brown;
     height: 80px;
-    width: 100%;
-    margin-top: 0px;
+    width: 100%;   
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+    position: relative;
 }
 .titleArea h1{
     font-family: fantasy;
-    color: beige;    
+    color: beige;
+}
+.titleArea h4 a{
+    font-family: fantasy;
+    color: beige;
+    cursor: pointer;
+    text-decoration: none;
+    position: absolute;
+    right: 0%;
+    transform: translateY(-50%);
+    margin-right: 100px;
 }
 .form{
     display: flex;

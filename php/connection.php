@@ -1,5 +1,6 @@
 <?php
 
+//database connection
 $host = "localhost";
 $dbname = "number_generator";
 $username = "numberAdmin";

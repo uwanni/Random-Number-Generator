@@ -10,6 +10,9 @@ document.addEventListener("DOMContentLoaded", function(){
     document.getElementById("Mul").addEventListener("click", function(){
         multiplyTheSelectedNumbers();
     });
+    document.getElementById("save").addEventListener("click",function(){
+        saveTheResults();
+    });
 
     //close the alert - max 10 number selecting 
     var closeBtn = document.getElementById('closeButtonID');    
@@ -218,25 +221,36 @@ function generateNumbers(){
 //calculations - Add the Selected Numbers
 function addTheSelectedNumbers(){
     var addValue = 0;
+    count = 0;
     document.getElementById("addOutputID").style.color = "black";
 
     for(var arrayindex=0; arrayindex<selectedCellsArray.length; arrayindex++){
         addValue += parseInt(selectedCellsArray[arrayindex]);
-        document.getElementById("addOutputID").value = addValue;
+        count++;
+        if(count>=2){
+            document.getElementById("addOutputID").value = addValue;
+        }else{
+            document.getElementById("addOutputID").value = "Need 2 or more values";
+        }
     }
 }
 //calculations - Multiply the Selected Numbers
 function multiplyTheSelectedNumbers(){
     var mulValue = 1;
+    count = 0;
     document.getElementById("mulOutputID").style.color = "black";
 
     for(var arrayindex=0; arrayindex<selectedCellsArray.length; arrayindex++){
         mulValue *= parseInt(selectedCellsArray[arrayindex]);
-        document.getElementById("mulOutputID").value = mulValue;
+        count++;
+        if(count>=2){
+            document.getElementById("mulOutputID").value = mulValue;
+        }else{
+            document.getElementById("mulOutputID").value = "Need 2 or more values";
+        }
     }
 }
 
-//send the results to the database
+//create a result set - save the results
 function saveTheResults(){
-
 }

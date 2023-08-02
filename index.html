@@ -16,9 +16,10 @@
             <div class="numberGenerator">
                 <div class="titleArea">
                     <h1>Random Number Generator</h1>  
+                    <h4><a href="./php/history.php">Check History</a></h4>
                 </div> 
                 <div class="form">
-                    <form action="connection.php" method="post">
+                    <form>
                         <p> <strong> Select 50 numbers within this range: </strong> </p>
 
                         <div class="range">
@@ -77,19 +78,19 @@
                     
                 <!-- calculation form -->
                 <div class="calculations" id="calculationSection">
-                    <form class="calculationForm" action="connection.php" method="post">
+                    <form class="calculationForm" id="calculationForm" action="./php/postData.php" method="post">
                         <div class="addition">
                             <button id="Add" type="button" onclick="addTheSelectedNumbers()">Add the numbers</button>
-                            <input class="addOutput" id="addOutputID" readonly>
+                            <input class="addOutput" id="addOutputID" name="addition" readonly>
                         </div>
                         <div class="multiplication">
                             <button id="Mul" type="button" onclick="multiplyTheSelectedNumbers()">Multiply the numbers</button>
-                            <input class="mulOutput" id="mulOutputID" readonly>
+                            <input class="mulOutput" id="mulOutputID" name="multiplication" readonly>
                         </div>
     
                         <div class="buttons">
                             <button class="clear" type="reset">Clear the results</button> <br>
-                            <button class="save" type="submit" onclick="saveTheResults()">Save the results</button>
+                            <button id="save" class="save" type="submit" name="saveTheResults" onclick="saveTheResults()">Save the results</button>
                         </div>
                     </form>
                 </div>
@@ -97,6 +98,7 @@
             </div>
 
         </div>
+
         <!-- alert box -->
         <div class="alertBox" id="alertBoxID">
             <span class="alertMessage" ID="alertMessageID"></span> <br>
